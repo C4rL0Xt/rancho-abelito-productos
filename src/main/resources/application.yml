@@ -1,0 +1,19 @@
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+spring:
+  application:
+    name: mc-productos
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=RanchoAbelitoProducto;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: 12345
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    show-sql: true
+
+server:
+  port: 8080
