@@ -1,25 +1,14 @@
-package com.elranchoabelito.mcproductos.models.entities;
+package com.elranchoabelito.mcproductos.models.dtos;
 
-import jakarta.persistence.*;
+public class SubcategoriaCardDTO {
 
-
-@Entity
-@Table(name = "subcategoria")
-public class Subcategoria {
-
-    @Id
     private Integer idSubcategoria;
-
-    @OneToOne
-    @JoinColumn(name = "fk_categoria")
-    private Categoria categoria;
-
     private String nombre;
-
-    @Column(name = "image_url")
     private String imageUrl;
 
-    public Subcategoria() {
+
+    public SubcategoriaCardDTO() {
+
     }
 
     public Integer getIdSubcategoria() {
@@ -28,14 +17,6 @@ public class Subcategoria {
 
     public void setIdSubcategoria(Integer idSubcategoria) {
         this.idSubcategoria = idSubcategoria;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
     }
 
     public String getNombre() {

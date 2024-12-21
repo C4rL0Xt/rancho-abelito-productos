@@ -1,6 +1,6 @@
 package com.elranchoabelito.mcproductos.services;
 
-import com.elranchoabelito.mcproductos.models.dtos.ProductoMeseroDTO;
+import com.elranchoabelito.mcproductos.models.dtos.*;
 import com.elranchoabelito.mcproductos.models.entities.Producto;
 
 import java.util.List;
@@ -11,6 +11,16 @@ public interface IProductoService {
 
     Producto findById(Integer id);
 
-    List<ProductoMeseroDTO> getProductsForMesero();
+    List<ProductoMeseroDTO> getProductsForList();
+
+    List<ProductoCardDTO> listarProductosCardDTO();
+
+    Producto createProducto(CreateProductoDTO createProductoDTO);
+
+    Producto updateStockProducto(UpdateStockProductoDTO updateProductoDTO);
+
+    Producto updateProducto(UpdateProductoDTO updateProductoDTO);
+
+
 
 }

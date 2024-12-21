@@ -1,6 +1,7 @@
 package com.elranchoabelito.mcproductos.models.dtos;
 
 public class SubcategoriaDTO {
+
     private Integer idSubcategoria;
     private String nombre;
 

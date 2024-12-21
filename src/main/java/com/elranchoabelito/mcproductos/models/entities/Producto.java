@@ -12,8 +12,8 @@ import java.math.BigDecimal;
 public class Producto implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_producto")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @Column(name = "id_producto")
     private Integer idProducto;
 
     @ManyToOne
