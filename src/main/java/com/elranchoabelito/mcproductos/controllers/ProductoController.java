@@ -40,19 +40,19 @@ public class ProductoController {
     public ResponseEntity<Producto> createProducto(@RequestBody CreateProductoDTO createProductoDTO){
 
         Producto producto = productoService.createProducto(createProductoDTO);
-
         return ResponseEntity.ok(producto);
-
     }
 
     @PostMapping("/actualizarStock")
     public ResponseEntity<Producto> updateStockProducto(@RequestBody UpdateStockProductoDTO updateProductoDTO){
+
         Producto producto = productoService.updateStockProducto(updateProductoDTO);
         return ResponseEntity.ok(producto);
     }
 
     @PostMapping("/actualizar")
     public  ResponseEntity<Producto> updateProducto(@RequestBody UpdateProductoDTO updateProductoDTO){
+
         Producto producto = productoService.updateProducto(updateProductoDTO);
         return ResponseEntity.ok(producto);
     }

@@ -1,6 +1,6 @@
 package com.elranchoabelito.mcproductos.mapper;
 
-import com.elranchoabelito.mcproductos.models.dtos.CreateSubcategoriaDTO;
+import com.elranchoabelito.mcproductos.models.dtos.SaveSubcategoriaDTO;
 import com.elranchoabelito.mcproductos.models.dtos.SubcategoriaCardDTO;
 import com.elranchoabelito.mcproductos.models.dtos.SubcategoriaDTO;
 import com.elranchoabelito.mcproductos.models.entities.Subcategoria;
@@ -15,7 +15,6 @@ public class SubcategoriaMapper {
         return subcategoriaDTO;
     }
 
-
     public static SubcategoriaCardDTO subcategoriaCardDTO(Subcategoria subcategoria) {
         SubcategoriaCardDTO cardDTO = new SubcategoriaCardDTO();
         cardDTO.setIdSubcategoria(subcategoria.getIdSubcategoria());
@@ -25,11 +24,11 @@ public class SubcategoriaMapper {
         return cardDTO;
     }
 
-    public static Subcategoria toSubcategoriaEntity(CreateSubcategoriaDTO createSubcategoriaDTO) {
+    public static Subcategoria toSubcategoriaEntity(SaveSubcategoriaDTO saveSubcategoriaDTO) {
         Subcategoria subcategoria = new Subcategoria();
-        subcategoria.setIdSubcategoria(createSubcategoriaDTO.getIdSubcategoria());
-        subcategoria.setNombre(createSubcategoriaDTO.getNombre());
-        subcategoria.setImageUrl(createSubcategoriaDTO.getImageUrl());
+        subcategoria.setIdSubcategoria(saveSubcategoriaDTO.getIdSubcategoria());
+        subcategoria.setNombre(saveSubcategoriaDTO.getNombre());
+        subcategoria.setImageUrl(saveSubcategoriaDTO.getImageUrl());
 
         return subcategoria;
     }

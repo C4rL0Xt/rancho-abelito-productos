@@ -1,8 +1,11 @@
 package com.elranchoabelito.mcproductos.services.impl;
 
+import com.elranchoabelito.mcproductos.mapper.CategoriaMapper;
+import com.elranchoabelito.mcproductos.models.dtos.SaveCategoriaDTO;
 import com.elranchoabelito.mcproductos.models.entities.Categoria;
 import com.elranchoabelito.mcproductos.repository.CategoriaRepository;
 import com.elranchoabelito.mcproductos.services.ICategoriaService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +41,12 @@ public class CategoriaServiceImpl implements ICategoriaService {
         return categoriaRepository.findByIdCategoria(id).orElseThrow(
                 () -> new NullPointerException("No se encontro la categoria con id: "+ id)
         );
+    }
+
+    @Override
+    @Transactional
+    public Categoria save(SaveCategoriaDTO saveCategoriaDTO) {
+        Categoria categoria = CategoriaMapper.toCategoryEntity(saveCategoriaDTO);
+        return categoriaRepository.save(categoria);
     }
 }

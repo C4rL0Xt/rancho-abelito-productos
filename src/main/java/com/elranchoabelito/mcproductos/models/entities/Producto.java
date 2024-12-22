@@ -2,8 +2,6 @@ package com.elranchoabelito.mcproductos.models.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -12,8 +10,6 @@ import java.math.BigDecimal;
 public class Producto implements Serializable {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-   // @Column(name = "id_producto")
     private Integer idProducto;
 
     @ManyToOne
@@ -32,7 +28,6 @@ public class Producto implements Serializable {
 
     private Integer stock;
 
-
     private boolean activo;
 
     @Column(name = "image_url")
@@ -50,6 +45,31 @@ public class Producto implements Serializable {
         this.stock = stock;
         this.activo = activo;
         this.imageUrl = imageUrl;
+    }
+
+    public void actualizarStock(Integer incrementoStock){
+        if( incrementoStock > 0) {
+            stock = stock + incrementoStock;
+            updateActivo();
+        }else {
+            throw new RuntimeException("No se puede actualizar stock");
+        }
+    }
+
+    public void reducirStock(Integer cantidad){
+        if(stock - cantidad < 0){
+            throw new IllegalArgumentException(("Cantidad requerida sobrepasa los limites"));
+        }
+        stock = stock - cantidad;
+        updateActivo();
+    }
+
+    public void updateActivo(){
+        if ( this.stock == 0 ) {
+            activo = false;
+        }else if ( this.stock > 0 ) {
+            activo = true;
+        }
     }
 
     public Integer getIdProducto() {

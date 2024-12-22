@@ -2,6 +2,7 @@ package com.elranchoabelito.mcproductos.mapper;
 
 import com.elranchoabelito.mcproductos.models.dtos.*;
 import com.elranchoabelito.mcproductos.models.entities.Producto;
+import com.elranchoabelito.mcproductos.models.entities.Subcategoria;
 
 public class ProductoMapper {
 
@@ -41,7 +42,8 @@ public class ProductoMapper {
         return producto;
     }
 
-    public static Producto updateProducto(Producto p, UpdateProductoDTO updateProductoDTO){
+    public static Producto updateProducto(Producto p, UpdateProductoDTO updateProductoDTO,Subcategoria subcategoria){
+        p.setSubcategoria(subcategoria);
         p.setDescripcion(updateProductoDTO.getDescripcion());
         p.setDescripcion(updateProductoDTO.getDescripcion());
         p.setPrecio(updateProductoDTO.getPrecio());

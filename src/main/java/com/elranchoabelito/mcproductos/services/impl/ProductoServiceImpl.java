@@ -72,9 +72,9 @@ public class ProductoServiceImpl implements IProductoService {
 
     @Override
     @Transactional
-    public  Producto updateStockProducto(UpdateStockProductoDTO updateProductoDTO) {
-        Producto producto = productoRepository.findById(updateProductoDTO.getIdProducto()).orElse(null);
-        producto.setStock(updateProductoDTO.getStock());
+    public  Producto updateStockProducto(UpdateStockProductoDTO updateStockProductoDTO) {
+        Producto producto = productoRepository.findById(updateStockProductoDTO.getIdProducto()).orElse(null);
+        producto.actualizarStock(updateStockProductoDTO.getCantidadM());
         productoRepository.save(producto);
         return producto;
     }
@@ -83,7 +83,8 @@ public class ProductoServiceImpl implements IProductoService {
     @Transactional
     public Producto updateProducto(UpdateProductoDTO updateProductoDTO){
         Producto producto = productoRepository.findById(updateProductoDTO.getId()).orElse(null);
-        producto = ProductoMapper.updateProducto(producto,updateProductoDTO);
+        Subcategoria subcategoria = subcategoriaService.findById(updateProductoDTO.getIdSubcategoria());
+        producto = ProductoMapper.updateProducto(producto,updateProductoDTO,subcategoria);
         productoRepository.save(producto);
         return producto;
     }

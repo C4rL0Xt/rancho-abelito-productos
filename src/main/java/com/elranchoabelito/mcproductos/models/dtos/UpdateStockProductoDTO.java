@@ -3,7 +3,7 @@ package com.elranchoabelito.mcproductos.models.dtos;
 public class UpdateStockProductoDTO {
 
     private Integer idProducto;
-    private Integer stock;
+    private Integer cantidadM;
 
     public UpdateStockProductoDTO() {
     }
@@ -16,11 +16,11 @@ public class UpdateStockProductoDTO {
         this.idProducto = idProducto;
     }
 
-    public Integer getStock() {
-        return stock;
+    public Integer getCantidadM() {
+        return cantidadM;
     }
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
+    public void setCantidadM(Integer stock) {
+        this.cantidadM = stock;
     }
 }

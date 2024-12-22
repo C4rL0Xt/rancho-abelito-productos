@@ -1,6 +1,6 @@
 package com.elranchoabelito.mcproductos.controllers;
 
-import com.elranchoabelito.mcproductos.models.dtos.CreateSubcategoriaDTO;
+import com.elranchoabelito.mcproductos.models.dtos.SaveSubcategoriaDTO;
 import com.elranchoabelito.mcproductos.models.dtos.SubcategoriaCardDTO;
 import com.elranchoabelito.mcproductos.models.dtos.SubcategoriaDTO;
 import com.elranchoabelito.mcproductos.models.entities.Subcategoria;
@@ -37,9 +37,9 @@ public class SubcategoriaController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Subcategoria> crearSubcategoria(@RequestBody CreateSubcategoriaDTO createSubcategoriaDTO) {
-        Subcategoria subcategoria = subcategoriaService.createSubcategoria(createSubcategoriaDTO);
+    public ResponseEntity<Subcategoria> crearSubcategoria(@RequestBody SaveSubcategoriaDTO saveSubcategoriaDTO) {
 
+        Subcategoria subcategoria = subcategoriaService.createSubcategoria(saveSubcategoriaDTO);
         return ResponseEntity.ok(subcategoria);
     }
 }

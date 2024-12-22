@@ -1,13 +1,13 @@
 package com.elranchoabelito.mcproductos.models.dtos;
 
-public class CreateSubcategoriaDTO {
+public class SaveSubcategoriaDTO {
 
     private Integer idSubcategoria;
     private Integer idCategoria;
     private String nombre;
     private String imageUrl;
 
-    public CreateSubcategoriaDTO() {
+    public SaveSubcategoriaDTO() {
     }
 
     public Integer getIdSubcategoria() {

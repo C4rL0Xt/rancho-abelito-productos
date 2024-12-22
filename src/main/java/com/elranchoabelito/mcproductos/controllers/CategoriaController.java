@@ -1,13 +1,11 @@
 package com.elranchoabelito.mcproductos.controllers;
 
+import com.elranchoabelito.mcproductos.models.dtos.SaveCategoriaDTO;
 import com.elranchoabelito.mcproductos.models.entities.Categoria;
 import com.elranchoabelito.mcproductos.services.ICategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -44,5 +42,18 @@ public class CategoriaController {
         return ResponseEntity.ok(categoria);
     }
 
+    @PostMapping("/create")
+    public ResponseEntity<Categoria> createCategoria(@RequestBody SaveCategoriaDTO saveCategoriaDTO) {
+        Categoria categoria = categoriaService.save(saveCategoriaDTO);
+
+        return ResponseEntity.ok(categoria);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<Categoria> updateCategoria(@RequestBody SaveCategoriaDTO saveCategoriaDTO) {
+        Categoria categoria = categoriaService.save(saveCategoriaDTO);
+
+        return ResponseEntity.ok(categoria);
+    }
 
 }

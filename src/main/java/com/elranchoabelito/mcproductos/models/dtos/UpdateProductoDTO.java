@@ -4,13 +4,21 @@ import java.math.BigDecimal;
 
 public class UpdateProductoDTO {
 
-
+    private Integer idSubcategoria;
     private Integer id;
     private String descripcion;
     private BigDecimal precio;
     private String imagen;
 
     public UpdateProductoDTO() {
+    }
+
+    public Integer getIdSubcategoria() {
+        return idSubcategoria;
+    }
+
+    public void setIdSubcategoria(Integer idSubcategoria) {
+        this.idSubcategoria = idSubcategoria;
     }
 
     public Integer getId() {
