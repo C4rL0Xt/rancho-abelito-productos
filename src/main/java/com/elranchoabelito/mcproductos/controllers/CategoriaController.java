@@ -20,6 +20,7 @@ public class CategoriaController {
         this.categoriaService = categoriaService;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/list")
     public ResponseEntity<List<Categoria>> getAllCategorias() {
         List<Categoria> categorias = categoriaService.findAll();
@@ -29,7 +30,7 @@ public class CategoriaController {
         return ResponseEntity.ok(categorias);
     }
 
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{id}")
     public ResponseEntity<Categoria> getCategoriaById(@PathVariable Integer id) {
 

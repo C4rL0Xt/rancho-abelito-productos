@@ -13,7 +13,7 @@ public interface IProductoService {
 
     List<ProductoMeseroDTO> getProductsForList();
 
-    List<ProductoCardDTO> listarProductosCardDTO();
+    List<ProductoCardDTO> listarProductosCardDTOPorSubcategoria(Integer idSubcategoria);
 
     Producto createProducto(CreateProductoDTO createProductoDTO);
 

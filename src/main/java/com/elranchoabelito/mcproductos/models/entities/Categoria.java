@@ -18,7 +18,18 @@ public class Categoria implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     public Categoria() {
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Integer getIdCategoria() {

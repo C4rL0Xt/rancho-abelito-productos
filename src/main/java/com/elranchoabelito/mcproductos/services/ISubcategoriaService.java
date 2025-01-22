@@ -15,10 +15,15 @@ public interface ISubcategoriaService {
 
     List<SubcategoriaCardDTO> listarSubcategoriaCardDTO();
 
+
     Subcategoria findById(Integer id);
 
     Subcategoria createSubcategoria(SaveSubcategoriaDTO saveSubcategoriaDTO);
 
     Subcategoria updateSubcategoria(SaveSubcategoriaDTO saveSubcategoriaDTO);
+
+    List<SubcategoriaDTO> SubcategoriasByIdCategoria(Integer idCategoria);
+
+
 
 }

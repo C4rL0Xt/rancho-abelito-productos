@@ -21,12 +21,11 @@ public class ProductoMapper {
     public static ProductoCardDTO toProductoCardDTO(Producto producto){
         ProductoCardDTO productoCardDTO = new ProductoCardDTO();
         productoCardDTO.setIdProducto(producto.getIdProducto());
-        productoCardDTO.setNombre(producto.getNombre());
-        productoCardDTO.setSubcategoriaNombre(producto.getSubcategoria().getNombre());
         productoCardDTO.setIdSubcategoria(producto.getSubcategoria().getIdSubcategoria());
-        productoCardDTO.setStock(producto.getStock());
+        productoCardDTO.setNombre(producto.getNombre());
+        productoCardDTO.setDescripcion(producto.getDescripcion());
         productoCardDTO.setPrecio(producto.getPrecio());
-        productoCardDTO.setImagen(producto.getImageUrl());
+        productoCardDTO.setImagenUrl(producto.getImageUrl());
         return productoCardDTO;
     }
 

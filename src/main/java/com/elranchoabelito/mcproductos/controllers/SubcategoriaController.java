@@ -38,8 +38,15 @@ public class SubcategoriaController {
 
     @PostMapping("/create")
     public ResponseEntity<Subcategoria> crearSubcategoria(@RequestBody SaveSubcategoriaDTO saveSubcategoriaDTO) {
-
         Subcategoria subcategoria = subcategoriaService.createSubcategoria(saveSubcategoriaDTO);
         return ResponseEntity.ok(subcategoria);
     }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/ByIdCategoria/{idCategoria}")
+    public ResponseEntity<List<SubcategoriaDTO>> listarByIdCategoria(@PathVariable Integer idCategoria){
+        List<SubcategoriaDTO> subcategorias = subcategoriaService.SubcategoriasByIdCategoria(idCategoria);
+        return ResponseEntity.ok(subcategorias);
+    }
+
+
 }

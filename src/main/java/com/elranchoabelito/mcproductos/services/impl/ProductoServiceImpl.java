@@ -51,8 +51,9 @@ public class ProductoServiceImpl implements IProductoService {
     }
 
     @Override
-    public List<ProductoCardDTO> listarProductosCardDTO(){
-        List<Producto> productos = productoRepository.findAll();
+    public List<ProductoCardDTO> listarProductosCardDTOPorSubcategoria(Integer idSubcategoria){
+        Subcategoria subcategoria = subcategoriaService.findById(idSubcategoria);
+        List<Producto> productos = productoRepository.findProductosBySubcategoria(subcategoria);
         return productos.stream().map(
                 ProductoMapper::toProductoCardDTO
         ).toList();

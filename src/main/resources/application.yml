@@ -9,7 +9,7 @@ spring:
   datasource:
     url: jdbc:sqlserver://localhost:1433;databaseName=RanchoAbelitoProducto;encrypt=true;trustServerCertificate=true
     username: sa
-    password: 12345
+    password: 12Stars
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   jpa:
     database-platform: org.hibernate.dialect.SQLServerDialect

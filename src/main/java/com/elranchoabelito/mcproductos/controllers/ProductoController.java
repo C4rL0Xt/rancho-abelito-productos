@@ -30,9 +30,10 @@ public class ProductoController {
         return ResponseEntity.ok().body(productos);
     }
 
-    @GetMapping("/for-card")
-    public ResponseEntity<List<ProductoCardDTO>> getProductosForCard() {
-        List<ProductoCardDTO> productos = productoService.listarProductosCardDTO();
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/for-card/{idSubcategoria}")
+    public ResponseEntity<List<ProductoCardDTO>> getProductosForCardPorSubcategoria(@PathVariable Integer idSubcategoria) {
+        List<ProductoCardDTO> productos = productoService.listarProductosCardDTOPorSubcategoria(idSubcategoria);
         return  ResponseEntity.ok().body(productos);
     }
 

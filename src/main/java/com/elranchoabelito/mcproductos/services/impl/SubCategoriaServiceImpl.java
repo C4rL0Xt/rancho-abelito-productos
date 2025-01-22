@@ -11,6 +11,7 @@ import com.elranchoabelito.mcproductos.services.ICategoriaService;
 import com.elranchoabelito.mcproductos.services.ISubcategoriaService;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,7 @@ public class SubCategoriaServiceImpl implements ISubcategoriaService {
     }
 
     @Override
+    @CrossOrigin(origins = "http://localhost:4200")
     public Subcategoria findById(Integer id) {
         return subcategoriaRepository.findById(id).orElse(null);
     }
@@ -75,5 +77,13 @@ public class SubCategoriaServiceImpl implements ISubcategoriaService {
         subcategoria.setCategoria(categoria);
 
         return subcategoriaRepository.save(subcategoria);
+    }
+    @Override
+    public List<SubcategoriaDTO> SubcategoriasByIdCategoria(Integer idCategoria) {
+        Categoria categoria = categoriaService.findCategoriaById(idCategoria);
+        List<Subcategoria> subcategorias = subcategoriaRepository.findSubcategoriasByCategoria(categoria);
+        return subcategorias.stream().map(
+                SubcategoriaMapper::toSubcategoriaDTO
+        ).toList();
     }
 }
